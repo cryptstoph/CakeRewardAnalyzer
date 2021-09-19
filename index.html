@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="file" id=csvFile accept=".csv"><br>
+    <br>
+
+    <p id='rewardsText'>
+        <table id="cryptoCurrencyTable">
+            <tbody id="cryptoCurrencyTableBocy">
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </p>
+    <br>
+    <h3>Graph Settings</h3>
+    <br>
+    currency filter: 
+    <br>
+    <select name="currencySelector" id="currencySelector">
+        <option value="all">all rewards in FIAT</option>
+    </select>
+    <br>
+    <br>
+    <input id="timeSelectionDaily", type="radio", name="timeSelectionDaily", value='true', checked/> daily rewards
+    <br>
+    <input id="timeSelectionDaily", type="radio", name="timeSelectionDaily", value='false'/> monthly rewards
+    <br>
+    <br>
+    <button id="loadCsv">show graphs</button><br>
+    <br>
+    <br>
+    <br>
+    <input type="checkbox" name="stackedBarChard" id="checkBoxStackedChart", checked>stacked bar chart
+    <br>
+    <br>
+    <div class='chartBox' style="width:75%; height:20%">
+        <canvas id="balanceChart" width="100" height="50"></canvas>
+    </div>
+    <br>
+
+    <div class='chartBox' style="width:75%; height:20%">
+        <canvas id="rewardChart" width="100" height="50"></canvas>
+    </div>
+    <br>
+    <div style="width:40%; height:20%">
+        <canvas id="donutChart" width="50" height="25"></canvas>
+    </div>
+
+    <p id='saldoParagraph'>
+        <table id="saldoTable">
+            <tr>
+                <th>Currency</th>
+                <th>Balance</th>
+                <th>FIAT value</th>
+            </tr>
+            <tbody id="saldoTableBody">
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
+
+    <div id="timeSelection">
+        <button onclick="updateTimeRange(7)">7d</button>
+        <button onclick="updateTimeRange(14)">14d</button>
+        <button onclick="updateTimeRange(30)">30d</button>
+        <button onclick="updateTimeRange(90)">90d</button>
+        <button onclick="updateTimeRange(180)">180d</button>
+        <button onclick="updateTimeRange(365)">1y</button>
+        <button onclick="updateTimeRangeMax()">Max</button>
+    </div>
+    <p id="balanceCharts">
+
+    </p>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+    <script src='testData.js'></script>
+    <script src='CakeAssetBuilder_V0.0.1.js'></script>
+    <script src='CakeRewardAnalyzer_V0.1.1.js'></script>
+    
+
+</body>
+</html>
